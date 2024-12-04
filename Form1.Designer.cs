@@ -30,17 +30,19 @@
         {
             CalanderView = new MonthCalendar();
             UpcomingPanel = new Panel();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
             checkBox5 = new CheckBox();
+            checkBox4 = new CheckBox();
+            checkBox3 = new CheckBox();
+            checkBox2 = new CheckBox();
+            checkBox1 = new CheckBox();
             UpcomingProgress = new ProgressBar();
             TaskCreateDate = new DateTimePicker();
             TaskCreatorPanel = new Panel();
-            TaskCreatePicture = new PictureBox();
-            TaskCreateGoals = new CheckedListBox();
+            Reset = new Button();
+            AddTask = new Button();
             TaskCreateDescription = new TextBox();
+            TaskCreateGoals = new CheckedListBox();
+            TaskCreatePicture = new PictureBox();
             DesignPanel = new Panel();
             UpcomingPanel.SuspendLayout();
             TaskCreatorPanel.SuspendLayout();
@@ -66,35 +68,15 @@
             UpcomingPanel.Size = new Size(314, 546);
             UpcomingPanel.TabIndex = 1;
             // 
-            // checkBox1
+            // checkBox5
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(29, 22);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(29, 60);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(83, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(29, 95);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(83, 19);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "checkBox3";
-            checkBox3.UseVisualStyleBackColor = true;
+            checkBox5.AutoSize = true;
+            checkBox5.Location = new Point(29, 169);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new Size(83, 19);
+            checkBox5.TabIndex = 4;
+            checkBox5.Text = "checkBox5";
+            checkBox5.UseVisualStyleBackColor = true;
             // 
             // checkBox4
             // 
@@ -106,15 +88,35 @@
             checkBox4.Text = "checkBox4";
             checkBox4.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkBox3
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(29, 169);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(83, 19);
-            checkBox5.TabIndex = 4;
-            checkBox5.Text = "checkBox5";
-            checkBox5.UseVisualStyleBackColor = true;
+            checkBox3.AutoSize = true;
+            checkBox3.Location = new Point(29, 95);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(83, 19);
+            checkBox3.TabIndex = 2;
+            checkBox3.Text = "checkBox3";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new Point(29, 60);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(83, 19);
+            checkBox2.TabIndex = 1;
+            checkBox2.Text = "checkBox2";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(29, 22);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(83, 19);
+            checkBox1.TabIndex = 0;
+            checkBox1.Text = "checkBox1";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // UpcomingProgress
             // 
@@ -132,6 +134,8 @@
             // 
             // TaskCreatorPanel
             // 
+            TaskCreatorPanel.Controls.Add(Reset);
+            TaskCreatorPanel.Controls.Add(AddTask);
             TaskCreatorPanel.Controls.Add(TaskCreateDescription);
             TaskCreatorPanel.Controls.Add(TaskCreateGoals);
             TaskCreatorPanel.Controls.Add(TaskCreatePicture);
@@ -141,14 +145,31 @@
             TaskCreatorPanel.Size = new Size(285, 432);
             TaskCreatorPanel.TabIndex = 4;
             // 
-            // TaskCreatePicture
+            // Reset
             // 
-            TaskCreatePicture.Location = new Point(88, 162);
-            TaskCreatePicture.Name = "TaskCreatePicture";
-            TaskCreatePicture.Size = new Size(194, 267);
-            TaskCreatePicture.TabIndex = 4;
-            TaskCreatePicture.TabStop = false;
-            TaskCreatePicture.Click += pictureBox1_Click;
+            Reset.Location = new Point(89, 397);
+            Reset.Name = "Reset";
+            Reset.Size = new Size(75, 23);
+            Reset.TabIndex = 8;
+            Reset.Text = "Reset";
+            Reset.UseVisualStyleBackColor = true;
+            // 
+            // AddTask
+            // 
+            AddTask.Location = new Point(207, 397);
+            AddTask.Name = "AddTask";
+            AddTask.Size = new Size(75, 23);
+            AddTask.TabIndex = 7;
+            AddTask.Text = "Add Task";
+            AddTask.UseVisualStyleBackColor = true;
+            AddTask.Click += AddTask_Click;
+            // 
+            // TaskCreateDescription
+            // 
+            TaskCreateDescription.Location = new Point(89, 133);
+            TaskCreateDescription.Name = "TaskCreateDescription";
+            TaskCreateDescription.Size = new Size(196, 23);
+            TaskCreateDescription.TabIndex = 6;
             // 
             // TaskCreateGoals
             // 
@@ -159,12 +180,14 @@
             TaskCreateGoals.TabIndex = 5;
             TaskCreateGoals.SelectedIndexChanged += TaskCreateGoals_SelectedIndexChanged;
             // 
-            // TaskCreateDescription
+            // TaskCreatePicture
             // 
-            TaskCreateDescription.Location = new Point(89, 133);
-            TaskCreateDescription.Name = "TaskCreateDescription";
-            TaskCreateDescription.Size = new Size(196, 23);
-            TaskCreateDescription.TabIndex = 6;
+            TaskCreatePicture.Location = new Point(89, 162);
+            TaskCreatePicture.Name = "TaskCreatePicture";
+            TaskCreatePicture.Size = new Size(193, 229);
+            TaskCreatePicture.TabIndex = 4;
+            TaskCreatePicture.TabStop = false;
+            TaskCreatePicture.Click += pictureBox1_Click;
             // 
             // DesignPanel
             // 
@@ -209,5 +232,7 @@
         private CheckedListBox TaskCreateGoals;
         private PictureBox TaskCreatePicture;
         private Panel DesignPanel;
+        private Button Reset;
+        private Button AddTask;
     }
 }
