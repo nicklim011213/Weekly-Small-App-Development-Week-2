@@ -23,7 +23,7 @@ Stretch goals will be added once the base functions are ready.
 | **Day**       | **Progress**                                                   |
 |---------------|----------------------------------------------------------------|
 | **Monday:**   | Setup form layout and name the objects. Create a mockup design |
-| **Tuesday:**  |                                                                |
+| **Tuesday:**  | Setup task create button and dependencies                      |
 | **Wednesday:**|                                                                |
 | **Thursday:** |                                                                |
 | **Friday:**   |                                                                |
