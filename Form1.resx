@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Tutorial:
+
+On the left click on a date to select it
+Then in the middle you can click on the box above
+AddGoal to add goals for the day seperated by ;
+Click AddGoal to add them to the day
+When you are done click Add Task on the left to
+save it for the day. Then switch off and back on to 
+see your tasks show up
+
+You can also create a description for the day by
+typing in the box under the goals
+</value>
+  </data>
 </root>

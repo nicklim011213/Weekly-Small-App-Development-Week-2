@@ -6,11 +6,20 @@ namespace AOTW_Week2
     {
         public DateTime SelectedDate;
         public Dictionary<DateTime, List<PlannedTask>> TaskList = new Dictionary<DateTime, List<PlannedTask>>();
+        public List<string> GoalNames = new List<string>();
+        public List<bool> GoalCompleted = new List<bool>();
         public Form1()
         {
             InitializeComponent();
             SelectedDate = DateTime.Now;
             TaskCreateDate.ValueChanged += new EventHandler(UpdateDate);
+            AddGoal.Click += new EventHandler(UpdateGoalList);
+        }
+
+        private void UpdateGoalList(object? sender, EventArgs e)
+        {
+            GoalNames = new List<string>(GoalInput.Text.Split(";"));
+            GoalCompleted = Enumerable.Repeat(false, GoalNames.Count).ToList();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -25,12 +34,24 @@ namespace AOTW_Week2
 
         private void UpdateDate(object sender, EventArgs e)
         {
-            SelectedDate = TaskCreateDate.Value;
+            SelectedDate = TaskCreateDate.Value.Date;
+            TaskCreateGoals.Items.Clear();
+            var AnyTasks = TaskList.TryGetValue(SelectedDate, out List<PlannedTask> tasks);
+            if (AnyTasks)
+            {
+                foreach (var task in tasks)
+                {
+                    foreach (var goal in task.Goals)
+                    {
+                        TaskCreateGoals.Items.Add(goal.Description, goal.Completed);
+                    }
+                }
+            }
         }
 
         private void AddTask_Click(object sender, EventArgs e)
         {
-            DateTime TaskAdd = DateTime.Now;
+            DateTime TaskAdd = DateTime.Now.Date;
             List<String> ListGoalDescriptions = new List<String>();
             ListGoalDescriptions = TaskCreateGoals.Text.Split('\n').ToList();
             List<bool> ListGoalCompleted = CheckboxBoolConverter(new List<bool>());
@@ -41,7 +62,9 @@ namespace AOTW_Week2
             {
                 TaskList.TryAdd(TaskAdd, new List<PlannedTask>());
             }
-            TaskList[TaskAdd].Add(new PlannedTask { Title = "Empty", Description = TaskCreateDescription.Text, TaskPicture = (byte[])convert.ConvertTo(TaskCreatePicture.Image, typeof(byte[])), Goals = goal.CreateTaskList(ListGoalDescriptions, ListGoalCompleted) });
+            TaskList[TaskAdd].Add(new PlannedTask { Title = "Empty", Description = TaskCreateDescription.Text, TaskPicture = (byte[])convert.ConvertTo(TaskCreatePicture.Image, typeof(byte[])), Goals = goal.CreateTaskList(GoalNames, GoalCompleted) });
+            GoalInput.Clear();
+            CalanderView.AddBoldedDate(TaskAdd);
         }
 
         private List<bool> CheckboxBoolConverter(List<bool> ListGoalCompleted)

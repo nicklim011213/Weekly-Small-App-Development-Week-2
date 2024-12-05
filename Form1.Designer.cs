@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             CalanderView = new MonthCalendar();
             UpcomingPanel = new Panel();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            GoalInput = new TextBox();
+            AddGoal = new Button();
             UpcomingProgress = new ProgressBar();
             TaskCreateDate = new DateTimePicker();
             TaskCreatorPanel = new Panel();
@@ -58,65 +58,50 @@
             // 
             // UpcomingPanel
             // 
-            UpcomingPanel.Controls.Add(checkBox5);
-            UpcomingPanel.Controls.Add(checkBox4);
-            UpcomingPanel.Controls.Add(checkBox3);
-            UpcomingPanel.Controls.Add(checkBox2);
-            UpcomingPanel.Controls.Add(checkBox1);
+            UpcomingPanel.Controls.Add(textBox2);
+            UpcomingPanel.Controls.Add(textBox1);
+            UpcomingPanel.Controls.Add(GoalInput);
+            UpcomingPanel.Controls.Add(AddGoal);
             UpcomingPanel.Location = new Point(240, 12);
             UpcomingPanel.Name = "UpcomingPanel";
             UpcomingPanel.Size = new Size(314, 546);
             UpcomingPanel.TabIndex = 1;
             // 
-            // checkBox5
+            // textBox2
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(29, 169);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(83, 19);
-            checkBox5.TabIndex = 4;
-            checkBox5.Text = "checkBox5";
-            checkBox5.UseVisualStyleBackColor = true;
+            textBox2.Location = new Point(110, 22);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(75, 23);
+            textBox2.TabIndex = 3;
+            textBox2.Text = "Add Goals";
+            textBox2.TextAlign = HorizontalAlignment.Center;
             // 
-            // checkBox4
+            // textBox1
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(29, 132);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(83, 19);
-            checkBox4.TabIndex = 3;
-            checkBox4.Text = "checkBox4";
-            checkBox4.UseVisualStyleBackColor = true;
+            textBox1.Location = new Point(3, 187);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(308, 190);
+            textBox1.TabIndex = 2;
+            textBox1.Text = resources.GetString("textBox1.Text");
             // 
-            // checkBox3
+            // GoalInput
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(29, 95);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(83, 19);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "checkBox3";
-            checkBox3.UseVisualStyleBackColor = true;
+            GoalInput.Location = new Point(0, 64);
+            GoalInput.Name = "GoalInput";
+            GoalInput.Size = new Size(311, 23);
+            GoalInput.TabIndex = 1;
             // 
-            // checkBox2
+            // AddGoal
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(29, 60);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(83, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(29, 22);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
+            AddGoal.Location = new Point(110, 104);
+            AddGoal.Name = "AddGoal";
+            AddGoal.Size = new Size(75, 23);
+            AddGoal.TabIndex = 0;
+            AddGoal.Text = "AddGoal";
+            AddGoal.UseVisualStyleBackColor = true;
             // 
             // UpcomingProgress
             // 
@@ -220,11 +205,6 @@
 
         private MonthCalendar CalanderView;
         private Panel UpcomingPanel;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
         private ProgressBar UpcomingProgress;
         private DateTimePicker TaskCreateDate;
         private Panel TaskCreatorPanel;
@@ -234,5 +214,9 @@
         private Panel DesignPanel;
         private Button Reset;
         private Button AddTask;
+        private TextBox GoalInput;
+        private Button AddGoal;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
