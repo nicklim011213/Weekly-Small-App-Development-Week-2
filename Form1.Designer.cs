@@ -31,10 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             CalanderView = new MonthCalendar();
             UpcomingPanel = new Panel();
+            GoalTitle = new TextBox();
+            GoalTitleAdd = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             GoalInput = new TextBox();
-            AddGoal = new Button();
             UpcomingProgress = new ProgressBar();
             TaskCreateDate = new DateTimePicker();
             TaskCreatorPanel = new Panel();
@@ -44,6 +45,7 @@
             TaskCreateGoals = new CheckedListBox();
             TaskCreatePicture = new PictureBox();
             DesignPanel = new Panel();
+            AddGoal = new Button();
             UpcomingPanel.SuspendLayout();
             TaskCreatorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TaskCreatePicture).BeginInit();
@@ -58,6 +60,8 @@
             // 
             // UpcomingPanel
             // 
+            UpcomingPanel.Controls.Add(GoalTitle);
+            UpcomingPanel.Controls.Add(GoalTitleAdd);
             UpcomingPanel.Controls.Add(textBox2);
             UpcomingPanel.Controls.Add(textBox1);
             UpcomingPanel.Controls.Add(GoalInput);
@@ -67,9 +71,26 @@
             UpcomingPanel.Size = new Size(314, 546);
             UpcomingPanel.TabIndex = 1;
             // 
+            // GoalTitle
+            // 
+            GoalTitle.Location = new Point(110, 3);
+            GoalTitle.Name = "GoalTitle";
+            GoalTitle.ReadOnly = true;
+            GoalTitle.Size = new Size(75, 23);
+            GoalTitle.TabIndex = 5;
+            GoalTitle.Text = "Goals Title";
+            GoalTitle.TextAlign = HorizontalAlignment.Center;
+            // 
+            // GoalTitleAdd
+            // 
+            GoalTitleAdd.Location = new Point(0, 25);
+            GoalTitleAdd.Name = "GoalTitleAdd";
+            GoalTitleAdd.Size = new Size(314, 23);
+            GoalTitleAdd.TabIndex = 4;
+            // 
             // textBox2
             // 
-            textBox2.Location = new Point(110, 22);
+            textBox2.Location = new Point(110, 51);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(75, 23);
@@ -89,19 +110,11 @@
             // 
             // GoalInput
             // 
-            GoalInput.Location = new Point(0, 64);
+            GoalInput.Location = new Point(0, 75);
+            GoalInput.Multiline = true;
             GoalInput.Name = "GoalInput";
-            GoalInput.Size = new Size(311, 23);
+            GoalInput.Size = new Size(311, 81);
             GoalInput.TabIndex = 1;
-            // 
-            // AddGoal
-            // 
-            AddGoal.Location = new Point(110, 104);
-            AddGoal.Name = "AddGoal";
-            AddGoal.Size = new Size(75, 23);
-            AddGoal.TabIndex = 0;
-            AddGoal.Text = "AddGoal";
-            AddGoal.UseVisualStyleBackColor = true;
             // 
             // UpcomingProgress
             // 
@@ -181,6 +194,15 @@
             DesignPanel.Size = new Size(285, 140);
             DesignPanel.TabIndex = 5;
             // 
+            // AddGoal
+            // 
+            AddGoal.Location = new Point(110, 162);
+            AddGoal.Name = "AddGoal";
+            AddGoal.Size = new Size(75, 23);
+            AddGoal.TabIndex = 0;
+            AddGoal.Text = "AddGoal";
+            AddGoal.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,8 +237,10 @@
         private Button Reset;
         private Button AddTask;
         private TextBox GoalInput;
-        private Button AddGoal;
         private TextBox textBox1;
         private TextBox textBox2;
+        private TextBox GoalTitle;
+        private TextBox GoalTitleAdd;
+        private Button AddGoal;
     }
 }

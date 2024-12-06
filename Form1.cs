@@ -8,18 +8,21 @@ namespace AOTW_Week2
         public Dictionary<DateTime, List<PlannedTask>> TaskList = new Dictionary<DateTime, List<PlannedTask>>();
         public List<string> GoalNames = new List<string>();
         public List<bool> GoalCompleted = new List<bool>();
+        public string GoalListTitle = "";
         public Form1()
         {
             InitializeComponent();
             SelectedDate = DateTime.Now;
             TaskCreateDate.ValueChanged += new EventHandler(UpdateDate);
             AddGoal.Click += new EventHandler(UpdateGoalList);
+            TaskCreateGoals.ItemCheck += new ItemCheckEventHandler(SaveProgress);
         }
 
         private void UpdateGoalList(object? sender, EventArgs e)
         {
             GoalNames = new List<string>(GoalInput.Text.Split(";"));
             GoalCompleted = Enumerable.Repeat(false, GoalNames.Count).ToList();
+            GoalListTitle = GoalTitleAdd.Text;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -41,10 +44,28 @@ namespace AOTW_Week2
             {
                 foreach (var task in tasks)
                 {
+                    TaskCreateGoals.Items.Add(task.Title, true);
                     foreach (var goal in task.Goals)
                     {
                         TaskCreateGoals.Items.Add(goal.Description, goal.Completed);
                     }
+                }
+            }
+
+        }
+         
+        private void SaveProgress(object? sender, ItemCheckEventArgs e)
+        {
+            DateTime TaskAdd = DateTime.Now.Date;
+            int IndexofItem = e.Index;
+            bool isChecked = e.NewValue == CheckState.Checked;
+
+            foreach (var taskgoallist in TaskList[TaskAdd])
+            {
+                var SelectedGoal = taskgoallist.Goals.Find(TaskGoal => TaskCreateGoals.Items[IndexofItem].ToString() == TaskGoal.Description.ToString());
+                if (SelectedGoal is not null)
+                {
+                    SelectedGoal.Completed = isChecked;
                 }
             }
         }
@@ -62,8 +83,9 @@ namespace AOTW_Week2
             {
                 TaskList.TryAdd(TaskAdd, new List<PlannedTask>());
             }
-            TaskList[TaskAdd].Add(new PlannedTask { Title = "Empty", Description = TaskCreateDescription.Text, TaskPicture = (byte[])convert.ConvertTo(TaskCreatePicture.Image, typeof(byte[])), Goals = goal.CreateTaskList(GoalNames, GoalCompleted) });
+            TaskList[TaskAdd].Add(new PlannedTask { Title = GoalListTitle, Description = TaskCreateDescription.Text, TaskPicture = (byte[])convert.ConvertTo(TaskCreatePicture.Image, typeof(byte[])), Goals = goal.CreateTaskList(GoalNames, GoalCompleted) });
             GoalInput.Clear();
+            GoalTitleAdd.Clear();
             CalanderView.AddBoldedDate(TaskAdd);
         }
 
