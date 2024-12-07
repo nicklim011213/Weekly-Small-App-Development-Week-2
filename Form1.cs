@@ -16,6 +16,65 @@ namespace AOTW_Week2
             TaskCreateDate.ValueChanged += new EventHandler(UpdateDate);
             AddGoal.Click += new EventHandler(UpdateGoalList);
             TaskCreateGoals.ItemCheck += new ItemCheckEventHandler(SaveProgress);
+            TaskCreateDate.ValueChanged += new EventHandler(UpdateProgressBar);
+            TaskCreateGoals.ItemCheck += new ItemCheckEventHandler(UpdateProgressBarItemCheck);
+
+        }
+
+        private void UpdateProgressBar(object? sender, EventArgs e)
+        {
+            int size = 0;
+            bool AllChecked = true;
+            UpcomingProgress.Value = 0;
+            if (TaskCreateGoals.Items.Count <= 0)
+            {
+                return;
+            }
+            UpcomingProgress.Step = 100 / TaskCreateGoals.Items.Count;
+            for(int i = 0; i != TaskCreateGoals.Items.Count; i++)
+            {
+                if (TaskCreateGoals.GetItemChecked(i) == true)
+                {
+                    UpcomingProgress.PerformStep();
+                }
+                else
+                {
+                    AllChecked = false;
+                }
+            }
+
+            if (AllChecked)
+            {
+                UpcomingProgress.Value = 100;
+            }
+        }
+
+        private void UpdateProgressBarItemCheck(object? sender, ItemCheckEventArgs e)
+        {
+            int size = 0;
+            bool AllChecked = true;
+            UpcomingProgress.Value = 0;
+            if (TaskCreateGoals.Items.Count <= 0)
+            {
+                return;
+            }
+            UpcomingProgress.Step = 100 / TaskCreateGoals.Items.Count;
+            for (int i = 0; i != TaskCreateGoals.Items.Count; i++)
+            {
+                if (TaskCreateGoals.GetItemChecked(i) == true || (e.Index == i && e.NewValue == CheckState.Checked))
+                {
+                    UpcomingProgress.PerformStep();
+                }
+                else
+                {
+                    AllChecked = false;
+                }
+            }
+
+            if (AllChecked)
+            {
+                UpcomingProgress.Value = 100;
+            }
         }
 
         private void UpdateGoalList(object? sender, EventArgs e)

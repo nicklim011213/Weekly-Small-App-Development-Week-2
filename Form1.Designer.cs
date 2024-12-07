@@ -36,6 +36,7 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             GoalInput = new TextBox();
+            AddGoal = new Button();
             UpcomingProgress = new ProgressBar();
             TaskCreateDate = new DateTimePicker();
             TaskCreatorPanel = new Panel();
@@ -45,7 +46,6 @@
             TaskCreateGoals = new CheckedListBox();
             TaskCreatePicture = new PictureBox();
             DesignPanel = new Panel();
-            AddGoal = new Button();
             UpcomingPanel.SuspendLayout();
             TaskCreatorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TaskCreatePicture).BeginInit();
@@ -116,8 +116,18 @@
             GoalInput.Size = new Size(311, 81);
             GoalInput.TabIndex = 1;
             // 
+            // AddGoal
+            // 
+            AddGoal.Location = new Point(110, 162);
+            AddGoal.Name = "AddGoal";
+            AddGoal.Size = new Size(75, 23);
+            AddGoal.TabIndex = 0;
+            AddGoal.Text = "AddGoal";
+            AddGoal.UseVisualStyleBackColor = true;
+            // 
             // UpcomingProgress
             // 
+            UpcomingProgress.ForeColor = Color.Lime;
             UpcomingProgress.Location = new Point(240, 564);
             UpcomingProgress.Name = "UpcomingProgress";
             UpcomingProgress.Size = new Size(314, 26);
@@ -193,15 +203,6 @@
             DesignPanel.Name = "DesignPanel";
             DesignPanel.Size = new Size(285, 140);
             DesignPanel.TabIndex = 5;
-            // 
-            // AddGoal
-            // 
-            AddGoal.Location = new Point(110, 162);
-            AddGoal.Name = "AddGoal";
-            AddGoal.Size = new Size(75, 23);
-            AddGoal.TabIndex = 0;
-            AddGoal.Text = "AddGoal";
-            AddGoal.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
