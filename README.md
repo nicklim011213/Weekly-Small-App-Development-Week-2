@@ -25,7 +25,7 @@ Stretch goals will be added once the base functions are ready.
 | **Monday:**   | Setup form layout and name the objects. Create a mockup design |
 | **Tuesday:**  | Setup task create button and dependencies                      |
 | **Wednesday:**| Create Goal Adder, Save Date in better format, Clean up a bit  |
-| **Thursday:** |                                                                |
+| **Thursday:** | Your checkboxes now save, Goal title added (auto checked)      |
 | **Friday:**   |                                                                |
 | **Saturday:** |                                                                |
 | **Sunday:**   |                                                                |
