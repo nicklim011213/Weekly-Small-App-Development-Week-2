@@ -26,7 +26,7 @@ Stretch goals will be added once the base functions are ready.
 | **Tuesday:**  | Setup task create button and dependencies                      |
 | **Wednesday:**| Create Goal Adder, Save Date in better format, Clean up a bit  |
 | **Thursday:** | Your checkboxes now save, Goal title added (auto checked)      |
-| **Friday:**   |                                                                |
+| **Friday:**   | Finish progress bar. Updates on day change and on checkbox     |
 | **Saturday:** |                                                                |
 | **Sunday:**   |                                                                |
 
