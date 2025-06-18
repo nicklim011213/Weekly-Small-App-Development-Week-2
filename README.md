@@ -1,13 +1,13 @@
-# AOTW_Week2
+# Weekly Small App Development (Week 2)
 
 ## Explanation and rules
 
-AOTW is a recurring series I would like to try. The acronym stands for **App Of The Week**.
-The premise is very simple: every week, I have a new assignment—an application of some sort.
-The first few days are spent ensuring that the most basic functions of the app are acceptable.
-This is the end goal. Once the main end goal has been reached, I add stretch goals.
+This is a recurring series I would like to try. The premise is very simple: every week, 
+I have a new assignment—an application of some sort. The first few days are spent ensuring 
+that the most basic functions of the app are acceptable. This is the end goal. 
+Once the main end goal has been reached, I add stretch goals.
 
-**I must make at least one commit a day**, with the exception of Saturday and Sunday, which are optional.
+**I must make at least one commit a day**
 
 ---
 
