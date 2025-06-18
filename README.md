@@ -7,7 +7,7 @@ I have a new assignment—an application of some sort. The first few days are sp
 that the most basic functions of the app are acceptable. This is the end goal. 
 Once the main end goal has been reached, I add stretch goals.
 
-**I must make at least one commit a day**
+**I must make at least one commit a day**, with 2 off days (usually Saturday or Sunday).
 
 ---
 
